@@ -1,0 +1,33 @@
+<html ng-app="todoApp">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
+    <script src="./js/main.js"></script>
+</head>
+
+<body>
+
+<div ng-controller="todoController">
+    todo app
+
+    <form ng-submit="addTodo()">
+        <div class="input-todo">
+            <input type="text" ng-model="todo" placeholder="What do you need to do?" class="form-control">
+        <span class="input-todo-button">
+          <input type="submit" class="btn btn-primary" value="Add">
+        </span>
+        </div>
+    </form>
+
+    {{ todos }}
+    <ul>
+        <li ng-repeat="todo in todos track by $index">
+            <input type="checkbox">
+            {{ todo }}
+              <span class="input-todo-button">
+                  <button class="removeButton" ng-click="removeTodo($index)">Remove</button>
+             </span>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
